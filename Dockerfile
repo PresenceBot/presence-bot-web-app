@@ -12,4 +12,5 @@ ADD . /app
 EXPOSE 3000
 EXPOSE 35729
 
-CMD ["yarn", "start"]
+ENTRYPOINT ["/bin/bash", "/app/run.sh"]
+CMD ["start"]
