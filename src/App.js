@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    fetch('/api/guilds/test').then(value => {
+      return value.text();
+    }).then(value => {
+      console.log(value);
+    }).catch(e => console.error(e));
+  }
+
   render() {
     return (
       <div className="App">

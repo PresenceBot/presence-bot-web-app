@@ -16,3 +16,10 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
+  presence-bot-rest-api:
+    build: ../presence-bot-rest-api
+    ports:
+      - 4000:8080
+    environment:
+      - SESSION_SECRET
+      - DB_CONNECTION
