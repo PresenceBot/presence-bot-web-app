@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component {
-  componentDidMount() {
-    fetch('/api/guilds/test').then(value => {
-      return value.text();
-    }).then(value => {
-      console.log(value);
-    }).catch(e => console.error(e));
-  }
+import PresenceHistory from './PresenceHistory/PresenceHistory';
 
+class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <PresenceHistory guild={"303652810258513921"} />
       </div>
     );
   }
