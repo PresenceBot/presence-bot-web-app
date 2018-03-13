@@ -1,0 +1,14 @@
+.presence-history table {
+  width: 100%;
+}
+
+.presence-history thead td {
+  margin: 1px;
+  background-color: #999;
+  border: solid 1px #ccc;
+  flex: 1;
+}
+
+.presence-history thead td.lead {
+  flex-basis: 10em;
+}

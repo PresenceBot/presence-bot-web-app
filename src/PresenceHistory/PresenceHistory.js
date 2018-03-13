@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './PresenceHistory.css';
 
+import PresenceHistoryTable from './PresenceHistoryTable'
+
 class PresenceHistory extends Component {
   constructor() {
     super();
@@ -35,7 +37,9 @@ class PresenceHistory extends Component {
   render() {
     const {data} = this.state;
     return data ? (
-      <pre>{JSON.stringify(data, null, 4)}</pre>
+      <div className="presence-history">
+        <PresenceHistoryTable data={data} />
+      </div>
     ) : <div>Loading</div>;
   }
 }
