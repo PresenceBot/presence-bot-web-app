@@ -28,7 +28,7 @@ class PresenceHistoryBody extends Component {
     return <tbody>
       {
         activity.map(({nick, activity}, index) => <tr className="user-activity" key={index}>
-          <td className="lead">{nick}</td>
+          <td className={"lead " + (nick ? "" : "nameless")}>{nick || '(Unknown)'}</td>
           {activity.map(({online, idle}, index) => <td
             className="time-slot" key={index}
             style={{backgroundColor: getCellColor(online, idle, deltas[index])}}

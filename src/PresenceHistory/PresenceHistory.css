@@ -1,6 +1,7 @@
 .presence-history table {
   width: 100%;
   table-layout: fixed;
+  color: #444;
 }
 
 .presence-history thead td {
@@ -12,4 +13,9 @@
 
 .presence-history thead td.lead {
   width: 20em;
+}
+
+.presence-history tbody td.lead.nameless {
+  color: #999;
+  font-style: italic;
 }
