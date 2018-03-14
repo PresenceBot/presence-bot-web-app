@@ -6,13 +6,24 @@
 
 .presence-history thead td {
   margin: 1px;
-  background-color: #999;
-  border: solid 1px #ccc;
+  background-color: #eee;
   flex: 1;
 }
 
 .presence-history thead td.lead {
+  background-color: transparent;
   width: 20em;
+}
+
+.presence-history thead td.day {
+  font-size: .8em;
+  padding: .25em;
+  color: #666;
+  text-align: center;
+}
+
+.presence-history thead td.time {
+  height: 3px;
 }
 
 .presence-history tbody td.lead.nameless {

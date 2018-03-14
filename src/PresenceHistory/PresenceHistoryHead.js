@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 import './PresenceHistory.css';
 
+const getCellColor = (time) => {
+  const arg = time * Math.PI / 24;
+  const DAY = [255, 230, 120];
+  const NIGHT = [25, 40, 160];
+  const dayC = DAY.map(v => v * Math.sin(arg));
+  const nightC = NIGHT.map(v => v * Math.abs(Math.cos(arg)));
+  const red = Math.min(255, Math.floor(dayC[0] + nightC[0]));
+  const green = Math.min(255, Math.floor(dayC[1] + nightC[1]));
+  const blue = Math.min(255, Math.floor(dayC[2] + nightC[2]));
+  const pad = (c) => c.length === 1 ? '0' + c : c;
+  const color = '#' + 
+    pad(red.toString(16)) + 
+    pad(green.toString(16)) + 
+    pad(blue.toString(16));
+  return color;
+};
+
 class PresenceHistoryHead extends Component {
   render() {
     const {intervals} = this.props.data;
@@ -21,17 +38,21 @@ class PresenceHistoryHead extends Component {
     return <thead>
       <tr>
         <td className="lead"></td>
-        {intervals.slice(0, -1).map((time, index) => <td key={index}></td>)}
-      </tr>
-      <tr>
-        <td className="lead"></td>
-        {dayArr.map(({date, width}, index) => <td key={index} colSpan={width}>
+        {dayArr.map(({date, width}, index) => <td
+          className="day"
+          key={index}
+          colSpan={width}
+        >
           {date.toLocaleString('en-us', {  weekday: 'long' })}
         </td>)}
       </tr>
       <tr>
         <td className="lead"></td>
-        {intervals.slice(0, -1).map((time, index) => <td key={index}></td>)}
+        {times.slice(0, -1).map((time, index) => <td
+          className="time"
+          key={index}
+          style={{backgroundColor: getCellColor(time.getHours())}}
+        ></td>)}
       </tr>
     </thead>
   }
