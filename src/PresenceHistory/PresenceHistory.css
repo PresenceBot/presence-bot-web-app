@@ -1,5 +1,6 @@
 .presence-history table {
   width: 100%;
+  table-layout: fixed;
 }
 
 .presence-history thead td {
@@ -10,5 +11,5 @@
 }
 
 .presence-history thead td.lead {
-  flex-basis: 10em;
+  width: 20em;
 }
