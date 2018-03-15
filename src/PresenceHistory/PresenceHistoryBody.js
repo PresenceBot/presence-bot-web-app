@@ -25,9 +25,16 @@ class PresenceHistoryBody extends Component {
     // Deltas may not be uniform (eg DST), so precompute them
     const deltas = intervals.slice(0, -1)
       .map((interval, index) => intervals[index + 1] - interval);
+    const sortedActivity = activity.slice().sort(({nick: a}, {nick: b}) => {
+      a = a || '_';
+      b = b || '_';
+      if(a < b) return -1;
+      else if(a > b) return 1;
+      else return 0;
+    });
     return <tbody>
       {
-        activity.map(({nick, activity}, index) => <tr className="user-activity" key={index}>
+        sortedActivity.map(({nick, activity}, index) => <tr className="user-activity" key={index}>
           <td className={"lead " + (nick ? "" : "nameless")}>{nick || '(Unknown)'}</td>
           {activity.map(({online, idle}, index) => <td
             className="time-slot" key={index}
