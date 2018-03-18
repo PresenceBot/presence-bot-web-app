@@ -12,7 +12,7 @@
 
 .presence-history thead td.lead {
   background-color: transparent;
-  width: 20em;
+  width: 10em;
 }
 
 .presence-history thead td.day {
@@ -24,6 +24,13 @@
 
 .presence-history thead td.time {
   height: 3px;
+}
+
+.presence-history tbody td.lead {
+  width: 10em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .presence-history tbody td.lead.nameless {
